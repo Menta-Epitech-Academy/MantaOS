@@ -25,8 +25,8 @@ jobs:
 
       - name: Copy config and stages
         run: |
-          cp my-config/config pi-gen/
-          cp -r my-config/stage-custom pi-gen/
+          cp mantaOS/config pi-gen/
+          cp -r mantaOS/stage-custom pi-gen/
 
       - name: Build image
         working-directory: ./pi-gen
