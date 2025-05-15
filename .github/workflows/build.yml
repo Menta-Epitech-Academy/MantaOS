@@ -1,0 +1,40 @@
+name: Build Raspberry Pi OS Image
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y debootstrap qemu-user-static zip git binfmt-support systemd-container
+
+      - name: Copy config and stages
+        run: |
+          cp my-config/config pi-gen/
+          cp -r my-config/stage-custom pi-gen/
+
+      - name: Build image
+        working-directory: ./pi-gen
+        run: |
+          sudo ./build.sh
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: raspios64-custom
+          path: pi-gen/deploy/*.img

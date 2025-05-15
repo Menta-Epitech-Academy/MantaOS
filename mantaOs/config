@@ -1,0 +1,8 @@
+IMG_NAME='mantaOs'
+ENABLE_SSH=1
+FIRST_USER_NAME=manta
+FIRST_USER_PASS=epitech
+LOCALE_DEFAULT="fr_FR.UTF-8"
+KEYBOARD_KEYMAP="fr"
+TIMEZONE_DEFAULT="Europe/Paris"
+STAGE_LIST="stage0 stage1 stage2 stage3 stage4 stage-custom"

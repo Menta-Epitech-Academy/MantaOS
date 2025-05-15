@@ -1,0 +1,11 @@
+htop
+git
+vim
+curl
+python3-pip
+cmake
+libpipewire-0.3-dev
+libwayland-dev
+libsdl2-dev
+ruby-dev
+libcurl4-openssl-dev
